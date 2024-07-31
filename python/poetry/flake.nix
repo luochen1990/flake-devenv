@@ -11,18 +11,19 @@
     eachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f rec {
       inherit system;
       pkgs = import nixpkgs { inherit system; };
-      python3 = pkgs.python3; # or pkgs.python3.withPackages (p: []) if you need more python packages in nixpkgs
-      py-version = python3.version;
+      python = pkgs.python310; #TODO: change to the version you want. e.g. `pkgs.python39` for python3.9;
+      # or change to `pkgs.python310.withPackages (p: [])` if you need more python packages in nixpkgs
+      pyver = python.version;
     });
   in
   {
     # use them via `nix develop .#xxx` or `direnv allow`
-    devShells = eachSystem ({pkgs, python3, ...}: rec {
+    devShells = eachSystem ({pkgs, python, ...}: rec {
       default = poetry;
 
       poetry = pkgs.mkShell {
         buildInputs = [
-          python3
+          python
           pkgs.poetry
         ];
 
@@ -33,8 +34,11 @@
     });
 
     # use them via `nix run .#xxx`
-    apps = eachSystem ({system, pkgs, ...}: {
-      default = {
+    apps = eachSystem ({system, pkgs, ...}: rec {
+      default = main;
+
+      main = {
+        # TODO: change this script to your own app entry
         type = "app";
         program = "${pkgs.writeShellScript "funix-app" ''
           source ${self.devShells.${system}.default.shellHook}
