@@ -15,17 +15,31 @@ Usage
 Show available templates
 
 ```shell
-nix flake show github:luochen1990/nixos-develop-env
+nix flake show github:luochen1990/flake-devenv
 ```
 
-Select a template (e.g. `python-poetry`), and init your project (e.g. `my-new-project`) via
+Select a template (e.g. `python-poetry`), and init your project (e.g. `my-project`) via
 
 ```shell
-cd my-new-project
+cd my-project
 
-nix flake init --template github:luochen1990/nixos-develop-env#python-poetry
+nix flake init --template github:luochen1990/flake-devenv#python-poetry
 ```
 
-Run `direnv allow` to activate the develop environment if you use `direnv`,
+Then activate the development environment via
 
-Else you can run `nix develop` everytime to activate the develop environment manually.
+```shell
+direnv allow
+```
+
+Or if you prefer to activate the environment manually than use `direnv`, you can run
+
+```shell
+nix develop
+```
+
+And start your Editor/IDE here so that the development environment can be recognized
+
+```shell
+code .
+```
