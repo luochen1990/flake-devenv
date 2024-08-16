@@ -9,3 +9,23 @@ I hope that the flake.nix file here can also be used by your colleagues and frie
 
 Of course, if you are not a NixOS user but have grown tired of struggling in non-reproducible development environments, it is also a good idea to try the solutions presented here.
 
+Usage
+-----
+
+Show available templates
+
+```shell
+nix flake show github:luochen1990/nixos-develop-env
+```
+
+Select a template (e.g. `python-poetry`), and init your project (e.g. `my-new-project`) via
+
+```shell
+cd my-new-project
+
+nix flake init --template github:luochen1990/nixos-develop-env#python-poetry
+```
+
+Run `direnv allow` to activate the develop environment if you use `direnv`,
+
+Else you can run `nix develop` everytime to activate the develop environment manually.
