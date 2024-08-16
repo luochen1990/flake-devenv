@@ -1,13 +1,17 @@
-NixOS Development Environment
+Flake Development Environment
 =============================
 
-This is a collection of community-maintained flake.nix templates designed to help NixOS users quickly start coding for new projects.
+This is a collection of `flake.nix` templates designed to help you quickly start coding for new projects.
 
-This contains flake.nix files for different programming languages and technology stacks. It is a basic version but has sufficient extensibility, allowing you to continuously add new content as the project evolves.
 
-I hope that the flake.nix file here can also be used by your colleagues and friends (who likely do not use NixOS), so you won't need to prepare a separate development environment for them. Therefore, the flake here will also consider this compatibility aspect.
+Features
+--------
 
-Of course, if you are not a NixOS user but have grown tired of struggling in non-reproducible development environments, it is also a good idea to try the solutions presented here.
+- Contains `flake.nix` files for different programming languages and technology stacks.
+- It is **Out-of-the-box** but also has sufficient extensibility, allowing you to continuously add new content as the project evolves.
+- Designed for both NixOS users and non-NixOS (Nix only) users.
+- And it is compatible with traditional toolchains, allowing for seamless collaboration with non-Nix users.
+
 
 Usage
 -----
