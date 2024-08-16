@@ -17,7 +17,7 @@
   {
     templates = unionFor (findSubDirsContains ./. "flake.nix") (dir: {
       "${builtins.replaceStrings ["/"] ["-"] dir}" = {
-        path = "./" + dir;
+        path = ./. + "/${dir}";
         description = dir;
       };
     });
