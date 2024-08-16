@@ -8,9 +8,9 @@ Features
 --------
 
 - Contains `flake.nix` files for different programming languages and technology stacks.
-- It is **Out-of-the-box** but also has sufficient extensibility, allowing you to continuously add new content as the project evolves.
-- Designed for both NixOS users and non-NixOS (Nix only) users.
-- And it is compatible with traditional toolchains, allowing for seamless collaboration with non-Nix users.
+- It is **Out-of-the-box** but also has sufficient **extensibility**, allowing you to continuously add new content as the project evolves.
+- Designed for both **NixOS** users and **non-NixOS (Nix only)** users.
+- And it is compatible with traditional toolchains, allowing for **seamless collaboration** with non-Nix users.
 
 
 Usage
