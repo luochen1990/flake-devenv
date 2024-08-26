@@ -29,7 +29,7 @@
     devenvConfig = {
       #DOC: https://devenv.sh/reference/options
 
-      # packages = [ pkgs.git ];  # add packages from nixpkgs
+      # packages = pkgs: [ pkgs.git ];  # add packages from nixpkgs
 
       languages.python.enable = true;
       #languages.python.version = "3.12"; # set python version explicitly
@@ -48,7 +48,7 @@
       default = devenv.lib.mkShell {
         inherit inputs pkgs;
         modules = [
-          cfg
+          (cfg // { packages = cfg.packages pkgs; })
           {
             enterShell = pkgs.lib.mkIf cfg.languages.python.poetry.enable ''
               export PATH=$(poetry env info --path)/bin:$PATH
