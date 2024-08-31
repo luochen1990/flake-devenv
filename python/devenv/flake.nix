@@ -48,7 +48,7 @@
       default = devenv.lib.mkShell {
         inherit inputs pkgs;
         modules = [
-          (cfg // { packages = cfg.packages pkgs; })
+          (cfg // { packages = pkgs.lib.mkIf (cfg ? packages) (cfg.packages pkgs); })
           {
             enterShell = pkgs.lib.mkIf cfg.languages.python.poetry.enable ''
               export PATH=$(poetry env info --path)/bin:$PATH
